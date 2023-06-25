@@ -8,4 +8,4 @@ const prettyPrice = (grossPrice, extension) => {
   }
 
   prettyPrice(3.50, 0.95) // 3.95
-  prettyPrice(3.50, 99)   // 3.99
+  prettyPrice(3.50, 99)   // 3.99 //
