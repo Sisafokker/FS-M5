@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Basic Error</title>
+  </head>
+  <body>
+  </body>
+  <script>
+    // BUILDING YOUR OWN ERROR CLASS TO HANDLE ERRORS
+    class DevcampError extends Error{
+        constructor(msg = "❌❌ An error occurred", ...params){
+            super(...params);
+            this.msg = msg;
+        }
+    }
+
+    function siteComponent(func) {  // The function calls the argument func as a function
+      return func();
+    }
+    try {
+      console.log(siteComponent('oops')); // Will generate an error as 'oops' is a string, not a function like widget
+    } catch(e) {
+        let myMsg = '👉JP custom error message👈: '+e
+      throw new DevcampError('DevcampError', myMsg);
+    }
+  </script>
+</html>

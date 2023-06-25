@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lodash Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+  </head>
+  <body>
+  </body>
+
+  <script>
+    // LoadAsh keyBy
+    console.log("LoadAsh keyBy ------------------");
+    console.log(">>Changing the structure of the arr Roster using keyBy");
+    const roster = [
+      { position: '3B', name: 'Bregman, A' },
+      { position: '2B', name: 'Altuve, J' },
+      { position: 'CF', name: 'Springer, G' },
+      { position: '1B', name: 'Gurriel, Y' },
+      { position: 'LF', name: 'Gonzalez, M' }
+    ]
+    console.log(roster);
+
+    const positions = _.keyBy(roster, 'position');
+    console.log(positions);
+    const secondBase = positions['2B'];
+    console.log(secondBase);
+    console.log("-------------------------");
+
+    // LoadAsh reduce
+    console.log("LoadAsh reduce --------------------");
+    console.log(">>Used to Run a calculation over an object");
+    let arr = [1, 2, 3];
+    const sum = _.reduce(arr, function(total, num) {
+      return total + num;
+    }, 0);
+    console.log("Arr", arr);
+    console.log("Sum of Arr", sum);
+
+    const homerunStats = [
+      { name: 'Bregman, A',  hr: 1 },
+      { name: 'Altuve, J',   hr: 4 },
+      { name: 'Springer, G', hr: 5 },
+      { name: 'Gurriel, Y',  hr: 10 },
+      { name: 'Gonzalez, M', hr: 20 }
+    ];
+
+    const totalHomeruns = _.reduce(homerunStats, function(total, player) {
+      return total + player.hr;
+    }, 0);
+    console.log("HomeRun Obj", homerunStats);
+    console.log("sum of homeruns: ",totalHomeruns);
+
+    console.log(">>Used to dinamically build an object");
+    const links = [
+      "https://google.com",
+      "https://devcamp.com",
+      "https://airbnb.com"
+    ];
+
+    const webLinks = _.reduce(links, function(content, link) {
+      return `<a href='${link}'>${link}</a><br>`.concat(content);
+    }, '');
+    console.log("Original Object: ",webLinks);
+    console.log("New Object: ",webLinks);
+
+
+    // LoadAsh random
+    console.log("LoadAsh random --------------------");
+    console.log(">>Get n amount of numbers which are random between two numbers");
+    lodashRandNumber = () => {
+      return _.random(1, 100);
+    }
+
+    const lodashSampleNumbers = _.times(5, lodashRandNumber);
+    console.log(lodashSampleNumbers);
+  </script>
+</html>

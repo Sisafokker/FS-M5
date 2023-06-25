@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Basic Error</title>
+  </head>
+  <body>
+  </body>
+  <script>
+    function siteComponent(func) {  // The function calls the argument func as a function
+      return func();
+    }
+    widget = () => {
+      return '<div>Hi there</div>';
+    }
+    try {
+      console.log(siteComponent('oops')); // Will generate an error as 'oops' is a string, not a function like widget
+    } catch(e) {
+      console.log('Joaquin: 👉 An error occurred', e);
+    }
+    console.log(siteComponent(widget)); // Will log: '<div>Hi there</div>'
+  </script>
+</html>
